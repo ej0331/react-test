@@ -13,5 +13,7 @@ RUN npm install
 # 构建React应用
 RUN npm run build
 
+EXPOSE 3000
+
 # 设置启动命令
 CMD ["npm", "start"]

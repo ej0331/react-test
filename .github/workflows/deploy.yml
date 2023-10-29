@@ -24,5 +24,7 @@ jobs:
       - name: Run Scanner
     # create docker container
         run: | 
-          docker build .
+          docker build . -t="react-test"
+          docker run -d -p 3000:3000 react-test
+
       
