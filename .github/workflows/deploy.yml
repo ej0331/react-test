@@ -21,7 +21,7 @@ jobs:
     # 使用了 actions/checkout@v3 動作來檢查程式碼庫
         uses: actions/checkout@v3
 
-      - name: Run Scanner
+      - name: Build Docker
     # create docker container
         run: | 
           docker build . -t="react-test"
