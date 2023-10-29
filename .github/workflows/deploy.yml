@@ -1,0 +1,28 @@
+name: My Actions
+
+# 定義觸發 CI/CD 的事件，這裡使用了 push 事件且只對 main 分支生效
+on:
+  push:
+    branches: [ main ]
+
+# 定義了一個 build 工作。
+jobs:
+  build:
+  # 為整個流程（workflow）取一個名字
+    name: Build and deploy to Web server
+    runs-on: self-hosted
+  # 定義該工作所屬的環境
+    environment: Main
+  # 定義了該工作中的步驟
+    steps:
+
+    # 為每個步驟取一個名字
+      - name: Checkout Repository
+    # 使用了 actions/checkout@v3 動作來檢查程式碼庫
+        uses: actions/checkout@v3
+
+      - name: Run Scanner
+    # create docker container
+        run: | 
+          docker build .
+      
